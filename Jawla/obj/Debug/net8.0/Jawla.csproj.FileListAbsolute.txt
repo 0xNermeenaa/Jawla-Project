@@ -1,0 +1,7 @@
+F:\Jawla Project\Jawla\obj\Debug\net8.0\Jawla.csproj.AssemblyReference.cache
+F:\Jawla Project\Jawla\obj\Debug\net8.0\Jawla.GeneratedMSBuildEditorConfig.editorconfig
+F:\Jawla Project\Jawla\obj\Debug\net8.0\Jawla.AssemblyInfoInputs.cache
+F:\Jawla Project\Jawla\obj\Debug\net8.0\Jawla.AssemblyInfo.cs
+F:\Jawla Project\Jawla\obj\Debug\net8.0\Jawla.csproj.CoreCompileInputs.cache
+F:\Jawla Project\Jawla\obj\Debug\net8.0\Jawla.MvcApplicationPartsAssemblyInfo.cs
+F:\Jawla Project\Jawla\obj\Debug\net8.0\Jawla.MvcApplicationPartsAssemblyInfo.cache

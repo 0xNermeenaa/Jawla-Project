@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "sygZ7Z+lQYpzuLAaS6XVXJQ/Xm0r94hXj5F+Oi3yiYnmnfE2bbYX1EaYdVzTAH95V2EnNl1taBk/6pigK9AKTw==",
+  "success": true,
+  "projectFilePath": "F:\\Jawla Project\\Jawla\\Jawla.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\win 10\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\win 10\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\win 10\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "C:\\Users\\win 10\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "C:\\Users\\win 10\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "C:\\Users\\win 10\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}
