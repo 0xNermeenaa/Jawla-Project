@@ -14,6 +14,6 @@
      /// </summary>
         public User User { get; set; }
 
-        public Trip Trip { get; set; }
+        //public Trip Trip { get; set; }
     }
 }
