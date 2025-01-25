@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nermeen\\Downloads\\GitHub-Projects\\Jawla-Project\\Jawla\\Jawla.csproj": {}
+    "C:\\github\\Jawla-Project\\Jawla\\Jawla.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nermeen\\Downloads\\GitHub-Projects\\Jawla-Project\\Jawla\\Jawla.csproj": {
+    "C:\\github\\Jawla-Project\\Jawla\\Jawla.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nermeen\\Downloads\\GitHub-Projects\\Jawla-Project\\Jawla\\Jawla.csproj",
+        "projectUniqueName": "C:\\github\\Jawla-Project\\Jawla\\Jawla.csproj",
         "projectName": "Jawla",
-        "projectPath": "C:\\Users\\Nermeen\\Downloads\\GitHub-Projects\\Jawla-Project\\Jawla\\Jawla.csproj",
-        "packagesPath": "C:\\Users\\Nermeen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nermeen\\Downloads\\GitHub-Projects\\Jawla-Project\\Jawla\\obj\\",
+        "projectPath": "C:\\github\\Jawla-Project\\Jawla\\Jawla.csproj",
+        "packagesPath": "C:\\Users\\عبد الرحمن\\.nuget\\packages\\",
+        "outputPath": "C:\\github\\Jawla-Project\\Jawla\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Nermeen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\عبد الرحمن\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -46,6 +50,20 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.5.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
@@ -70,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
