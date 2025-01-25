@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Jawla")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+008cc2e75431b20ce2c594933c1f3d9ea084e731")]
 [assembly: System.Reflection.AssemblyProductAttribute("Jawla")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Jawla")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
