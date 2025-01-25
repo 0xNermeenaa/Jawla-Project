@@ -10,5 +10,6 @@
         public string Role { get; set; }
         public ICollection<Favorite> Favorites { get; set; } = new List<Favorite>();
         public ICollection<Book> Books { get; set; } = new List<Book>();
+        public ICollection<Payment> Payments { get; set; } = new List<Payment>();
     }
 }
