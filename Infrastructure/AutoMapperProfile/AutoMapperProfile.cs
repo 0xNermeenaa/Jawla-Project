@@ -22,6 +22,8 @@ namespace Infrastructure.AutoMapperProfile
                 //
 
                 CreateMap<Trip, TripDetailsDTO>().ReverseMap();
+                CreateMap<CarDTO, Car>().ReverseMap();
+                CreateMap<DriverDTO, Driver>().ReverseMap();
 
 
             }
