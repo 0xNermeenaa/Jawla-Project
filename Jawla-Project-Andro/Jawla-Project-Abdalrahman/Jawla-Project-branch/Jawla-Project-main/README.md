@@ -1,3 +1,0 @@
-### Jawla-Project
-
-   Graduation Project
