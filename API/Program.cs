@@ -22,6 +22,11 @@ namespace APIapp
            builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
 
+
+            builder.Services.Configure<CloudinarySettings>(
+            builder.Configuration.GetSection("CloudinarySettings"));
+            builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
+
             // Add services to the container
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

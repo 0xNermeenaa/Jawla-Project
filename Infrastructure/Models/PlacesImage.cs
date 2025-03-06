@@ -11,7 +11,7 @@ namespace Infrastructure.Models
     {
         public int Id { get; set; }
         public string main_image { get; set; }
-        public string image { get; set; }
+        public virtual List<string> Images { get; set; } = new List<string>();
 
 
 
