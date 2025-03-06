@@ -94,14 +94,7 @@ namespace API.Controllers
 
 
         //
-        [HttpGet("[action]")]
-        public async Task<IActionResult> Addddd()
-        {
-
-
-            throw new Exception("لم يتم العثور على العنصر المطلوب حذفه.");
-
-        }
+        
 
 
 
