@@ -10,9 +10,9 @@ namespace Infrastructure
 {
     public class AppContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Data Source = .;Initial Catalog = jawla; Integrated Security = True; Encrypt=False");
-
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //=> optionsBuilder.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB;Initial Catalog = jawlaDb; Integrated Security = True; Encrypt=False");
+        public AppContext(DbContextOptions<AppContext> options) : base(options) { }
 
 
 

@@ -8,10 +8,10 @@ namespace Infrastructure.DTO
 {
     public class CarDTO
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string State { get; set; }
         public int Capacity { get; set; }
         public string License { get; set; }
-        public ICollection<DriverDTO> Driverss { get; set; }
+        //public List<DriverDTO> Drivers { get; set; } = new List<DriverDTO>();
     }
 }
