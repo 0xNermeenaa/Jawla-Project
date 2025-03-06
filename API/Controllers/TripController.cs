@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Infrastructure.DTO;
+using Infrastructure.DTO.TripDTO;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 using Repository.Service;
@@ -16,6 +18,8 @@ namespace API.Controllers
         {
             _tripService = tripService;
         }
+
+        //---------------------------------------------
 
         [HttpGet("[action]")]
         public async Task<IActionResult> GetAllTrips()
@@ -37,19 +41,62 @@ namespace API.Controllers
 
         //-----------------------------
 
-        [HttpGet("[action]")]
-        public int gg()
+
+
+        [HttpPost("[action]")]
+        public async Task <IActionResult> AddTrip([FromForm] AddUpdateTripDTO add)
         {
-            return 15;
+
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            var addtrip = await _tripService.AddTripِAsync(add);
+
+            return Ok("add successfully");
+        }
+        //
+
+        [HttpDelete("[action]")]
+        public async Task <IActionResult> DeleteTripAsinc(int id)
+        {
+            var del = await _tripService.DeleteTripAsync(id);
+            if (!del) return NotFound();
+
+            return NoContent();
+
+        }
+
+        //
+
+        [HttpPost("[action]")]
+        public async Task<IActionResult>UpdateTripAsinc([FromForm] AddUpdateTripDTO UpTrip)
+        {
+
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+                var updated = await _tripService.UpdateTripAsync(UpTrip);
+
+            if (!updated) return NotFound("Trip not found or could not be updated.");
+
+            return NoContent();
         }
 
 
 
-        [HttpGet("[action]")]
-        public IActionResult Get()
-        {
-            return Ok(new { message = "Hello, World!" });
-        }
+
+
+
+
+
+
+
+
+
+
+
+        //
+        
+
+
 
     }
 }

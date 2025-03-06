@@ -18,6 +18,6 @@ namespace Repository.IRepositories
         Task<bool> ExistsAsync(Tid id);
         Task<int> SaveChangesAsync();
 
-         int hg();
+        
     }
 }
