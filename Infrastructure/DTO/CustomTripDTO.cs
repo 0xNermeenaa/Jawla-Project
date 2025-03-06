@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastructure
+namespace Infrastructure.DTO
 {
-    public class CustomTrip
+    public class CustomTripDTO
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -18,11 +17,6 @@ namespace Infrastructure
         public string EndLocation { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
-
-        [ForeignKey("User")]
-        public int user_id { get; set; }
-        public User User { get; set; }
-        ICollection<Car> Drivers { get; set; } = new List<Car>();
 
 
 

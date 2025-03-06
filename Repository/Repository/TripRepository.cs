@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 using AppContext = Infrastructure.AppContext;
 using Infrastructure.Models;
+using Repository.IRepositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace Repository.Repository
 {
-    public class TripRepository:GenericRepository<Trip,int>
+    public class TripRepository:GenericRepository<Trip,int> ,ITripRepository
     {
 
         private readonly AppContext _context;
@@ -18,5 +20,9 @@ namespace Repository.Repository
         {
             _context = context;
         }
+        //-------------------------------------------
+       
+
+
     }
 }

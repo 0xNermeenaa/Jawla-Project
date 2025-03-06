@@ -14,7 +14,7 @@ namespace Repository.Repository
             _dbSet = _context.Set<T>();
         }
 
-
+        //--------------------------------------------------------------------------
 
 
 
@@ -25,16 +25,12 @@ namespace Repository.Repository
             await _context.SaveChangesAsync();
             return entity;
         }
-
-
-
+        //
         public async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _dbSet.ToListAsync();
         }
-
-
-
+        //
         public async Task<T> GetByIdAsync(Tid id)
         {
             var en = await _dbSet.FindAsync(id);
@@ -46,31 +42,34 @@ namespace Repository.Repository
 
             return en;
         }
-
+        //
         public async Task<T> UpdateAsync(T entity)
         {
             _dbSet.Update(entity);
             await _context.SaveChangesAsync();
             return entity;
         }
-
+        //
         public async Task<T> DeleteAsync(T entity)
         {
             _dbSet.Remove(entity);
             await _context.SaveChangesAsync();
             return entity;
         }
-
+        //
         public Task<int> SaveChangesAsync()
         {
-            throw new NotImplementedException();
+            return _context.SaveChangesAsync();
         }
-
-        public Task<bool> ExistsAsync(T entity)
+        //
+        public async Task<bool> ExistsAsync(Tid id)
         {
-            throw new NotImplementedException();
+            return await _dbSet.AnyAsync(entity => entity.Equals(id));
         }
+        //
 
+
+       
 
 
     }

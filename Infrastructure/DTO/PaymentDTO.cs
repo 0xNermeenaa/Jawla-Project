@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.DTO
 {
-    public class TripDTO
+    public class PaymentDTO
     {
     }
 }

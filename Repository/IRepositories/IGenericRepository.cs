@@ -15,9 +15,9 @@ namespace Repository.IRepositories
         Task<T> AddAsync(T entity);
         Task<T> UpdateAsync(T entity);
         Task<T> DeleteAsync(T entity);
-        Task<bool> ExistsAsync(T entity);
+        Task<bool> ExistsAsync(Tid id);
+        Task<int> SaveChangesAsync();
+
         
-
-
     }
 }

@@ -1,5 +1,11 @@
-
-namespace API
+using Repository.Service;
+using Repository.IRepositories;
+using Repository.Repository;
+using Infrastructure.AutoMapperProfile;
+using AppContext = Infrastructure.AppContext;
+using AutoMapper;
+using Infrastructure;
+namespace APIapp
 {
     public class Program
     {
@@ -7,16 +13,31 @@ namespace API
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-            builder.Services.AddAuthorization();
+            // Register services here
+            builder.Services.AddScoped<Repository.Service.TripService>();
+            builder.Services.AddScoped<TripService>();
+            builder.Services.AddScoped<ITripRepository, TripRepository>();
+            builder.Services.AddScoped<AppContext, AppContext>();
 
+           builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+
+
+
+            builder.Services.Configure<CloudinarySettings>(
+            builder.Configuration.GetSection("CloudinarySettings"));
+            builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
+
+            // Add services to the container
+            builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            //builder.Services.AddAutoMapper(typeof(AutoMapper.Mapper));
+
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
+            // Configure the HTTP request pipeline
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -24,28 +45,14 @@ namespace API
             }
 
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
 
-            var summaries = new[]
-            {
-                "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-            };
+            app.MapControllers();
 
-            app.MapGet("/weatherforecast", (HttpContext httpContext) =>
-            {
-                var forecast = Enumerable.Range(1, 5).Select(index =>
-                    new WeatherForecast
-                    {
-                        Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                        TemperatureC = Random.Shared.Next(-20, 55),
-                        Summary = summaries[Random.Shared.Next(summaries.Length)]
-                    })
-                    .ToArray();
-                return forecast;
-            })
-            .WithName("GetWeatherForecast")
-            .WithOpenApi();
+            app.UseCors(builder =>
+                builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader());
 
             app.Run();
         }

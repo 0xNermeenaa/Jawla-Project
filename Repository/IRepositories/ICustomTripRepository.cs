@@ -9,5 +9,6 @@ namespace Repository.IRepositories
 {
     public interface ICustomTripRepository:IGenericRepository<CustomTrip, int>
     {
+
     }
 }

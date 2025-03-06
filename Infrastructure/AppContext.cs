@@ -11,7 +11,7 @@ namespace Infrastructure
     public class AppContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer(" Data Source = (localdb)\\MSSQLLocalDB;Initial Catalog = jawla; Integrated Security = True;");
+        => optionsBuilder.UseSqlServer("Data Source = .;Initial Catalog = jawla; Integrated Security = True; Encrypt=False");
 
 
 
