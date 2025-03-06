@@ -5,6 +5,7 @@ using Infrastructure.AutoMapperProfile;
 using AppContext = Infrastructure.AppContext;
 using AutoMapper;
 using Infrastructure;
+using Microsoft.EntityFrameworkCore;
 namespace APIapp
 {
     public class Program
@@ -14,12 +15,23 @@ namespace APIapp
             var builder = WebApplication.CreateBuilder(args);
 
             // Register services here
-            builder.Services.AddScoped<Repository.Service.TripService>();
-            builder.Services.AddScoped<TripService>();
+            builder.Services.AddScoped<ITripService, TripService>();
             builder.Services.AddScoped<ITripRepository, TripRepository>();
-            builder.Services.AddScoped<AppContext, AppContext>();
+            builder.Services.AddScoped<ICarRepository, CarRepository>();
+            builder.Services.AddScoped<ICarService, CarService>();
+            builder.Services.AddScoped<IDriverRepository, DriverRepository>();
+            builder.Services.AddScoped<IDriverService, DriverService>();
 
-           builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+
+
+            // builder.Services.AddScoped<AppContext, AppContext>();
+            builder.Services.AddDbContext<AppContext>(options =>
+     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+
+
+            builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
 
 
