@@ -8,7 +8,8 @@ namespace Infrastructure.DTO.UserDTO
 {
     public class LoginDTO
     {
-        string UserName { get; set; }
-        public string Password { get; set; }
+        public required string Username { get; set; }
+
+        public required string password { get; set; }
     }
 }

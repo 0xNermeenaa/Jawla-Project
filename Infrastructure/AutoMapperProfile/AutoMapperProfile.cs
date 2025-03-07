@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Infrastructure.DTO.TripDTO;
+using Infrastructure.DTO;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.AutoMapperProfile
 {
+    using Infrastructure.DTO.TripDTO;
+
     public class AutoMapperProfile : Profile
     {
         public AutoMapperProfile()

@@ -1,4 +1,4 @@
-﻿using Infrastructure.DTO;
+﻿
 using Infrastructure.DTO.TripDTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +22,7 @@ namespace API.Controllers
         //---------------------------------------------
 
         [HttpGet("[action]")]
-        public async Task<IActionResult> GetAllTrips()
+        public async Task<ActionResult<List<AllTripsDTO>>> GetAllTrips()
         {
             var trips = await _tripService.GetAllTripsAsync();
             return Ok(trips);
@@ -32,7 +32,7 @@ namespace API.Controllers
 
         
         [HttpGet("[action]")]
-        public async Task <ActionResult> GetTrip(int id) 
+        public async Task <ActionResult<TripDetailsDTO>> GetTrip(int id) 
         {
             var trip = await _tripService.GetTripDetailsAsync(id);
 
@@ -56,7 +56,7 @@ namespace API.Controllers
         //
 
         [HttpDelete("[action]")]
-        public async Task <IActionResult> DeleteTripAsinc(int id)
+        public async Task <IActionResult> DeleteTrip(int id)
         {
             var del = await _tripService.DeleteTripAsync(id);
             if (!del) return NotFound();
@@ -67,8 +67,8 @@ namespace API.Controllers
 
         //
 
-        [HttpPost("[action]")]
-        public async Task<IActionResult>UpdateTripAsinc([FromForm] AddUpdateTripDTO UpTrip)
+        [HttpPut("[action]")]
+        public async Task<IActionResult>UpdateTrip([FromForm] AddUpdateTripDTO UpTrip)
         {
 
             if (!ModelState.IsValid) return BadRequest(ModelState);

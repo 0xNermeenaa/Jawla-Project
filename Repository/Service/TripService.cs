@@ -10,13 +10,15 @@ using Infrastructure.Models;
 
 using Microsoft.EntityFrameworkCore;
 using Repository.IRepositories;
-using Infrastructure.DTO.TripDTO;
+
 using CloudinaryDotNet.Actions;
 
 
 
 namespace Repository.Service
 {
+    using Infrastructure.DTO.TripDTO;
+
     public class TripService : ITripService
     {
         private readonly ICloudinaryService _cloudinaryService;
