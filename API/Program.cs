@@ -6,6 +6,8 @@ using AppContext = Infrastructure.AppContext;
 using AutoMapper;
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using Infrastructure.Models;
+using Microsoft.AspNetCore.Identity;
 namespace APIapp
 {
     public class Program
@@ -22,6 +24,7 @@ namespace APIapp
             builder.Services.AddScoped<IDriverRepository, DriverRepository>();
             builder.Services.AddScoped<IDriverService, DriverService>();
 
+            builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<AppContext>().AddDefaultTokenProviders();
 
 
             // builder.Services.AddScoped<AppContext, AppContext>();
