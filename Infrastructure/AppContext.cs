@@ -1,5 +1,6 @@
 ﻿using Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,10 @@ using System.Threading.Tasks;
 
 namespace Infrastructure
 {
-    public class AppContext : DbContext
+
+    
+
+    public class AppContext : IdentityDbContext<User>
     {
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //=> optionsBuilder.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB;Initial Catalog = jawlaDb; Integrated Security = True; Encrypt=False");
