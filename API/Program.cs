@@ -33,6 +33,18 @@ namespace APIapp
             builder.Services.AddScoped<ICarService, CarService>();
             builder.Services.AddScoped<IDriverRepository, DriverRepository>();
             builder.Services.AddScoped<IDriverService, DriverService>();
+            builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
+
+            builder.Services.AddIdentity<User, IdentityRole<int>>().AddEntityFrameworkStores<AppContext>().AddDefaultTokenProviders();
+
+            
+
+            // builder.Services.AddScoped<AppContext, AppContext>();
+            builder.Services.AddDbContext<AppContext>(options =>
+     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+
             builder.Services.AddScoped<ITourguideRepository, TourguideRepository>();
             builder.Services.AddScoped<ITourguideService, TourguideService>();
 

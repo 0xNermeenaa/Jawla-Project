@@ -8,9 +8,18 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Models
 {
-    public class User:IdentityUser
+    public class User : IdentityUser<int>
     {
-        public string? Name  { get; set; }
+        public int Id { get; set; }
+
+        public required string password { get; set; }
+
+        public required string Phone { get; set; }
+
+        public string? Role { get; set; }
+
+
+
 
         public virtual ICollection<Trip> FavoriteTrips { get; set; } = new List<Trip>();
         public virtual ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
@@ -18,4 +27,6 @@ namespace Infrastructure.Models
         public virtual ICollection<CustomTrip> CustomTrips { get; set; } = new List<CustomTrip>();
 
     }
+
+   
 }

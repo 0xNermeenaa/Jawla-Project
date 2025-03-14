@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace Infrastructure.Models
 {
     public class Payment
     {
+       // [PrimaryKey]
         public int Id { get; set; }
         public string Type { get; set; }
         public int Amount { get; set; }

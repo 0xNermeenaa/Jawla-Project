@@ -6,17 +6,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace Infrastructure
 {
 
     
 
-    public class AppContext : IdentityDbContext<User>
+    public class AppContext : IdentityDbContext<User,IdentityRole<int>,int>
     {
-       
-        public AppContext(DbContextOptions<AppContext> options) : base(options) { }
 
+
+        public AppContext(DbContextOptions<AppContext> options) : base(options)
+        {
+        }
 
 
         public virtual DbSet<User> User { get; set; }

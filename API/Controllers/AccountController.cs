@@ -54,10 +54,10 @@ namespace API.Controllers
 
             User appUser = new()
             {
-                Name = user.Username,
+                UserName = user.Username,
                 Email = user.Email,
-                PhoneNumber = user.Phone,
-               
+                Phone = user.Phone,
+                password = user.password
             };
 
             IdentityResult result = await _userManager.CreateAsync(appUser, user.password);
@@ -99,7 +99,7 @@ namespace API.Controllers
                 return Unauthorized("Invalid password.");
             }
             var claims = new List<Claim>();
-            claims.Add(new Claim(ClaimTypes.Name, user.Name));
+            claims.Add(new Claim(ClaimTypes.Name, user.UserName));
             claims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()));
             claims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
             var roles = await _userManager.GetRolesAsync(user);
@@ -141,11 +141,11 @@ namespace API.Controllers
             var emailService = new EmailService();
             await emailService.SendEmailAsync(model.Email, "Reset Password", $"Click <a href='{resetLink}'>here</a> to reset your password.");
 
-            return Ok(new 
+            return Ok(new
             {
                 token = token,
                 email = user.Email,
-                user = user.Name
+                user = user.UserName
             });
         }
         [HttpPost("reset-password")]
@@ -163,4 +163,4 @@ namespace API.Controllers
         }
     }
 
-    }
+}
