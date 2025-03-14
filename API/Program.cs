@@ -8,6 +8,7 @@ using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Infrastructure.Models;
 using Microsoft.AspNetCore.Identity;
+
 namespace APIapp
 {
     public class Program
@@ -16,7 +17,16 @@ namespace APIapp
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Register services here
+           
+            builder.Services.AddDbContext<AppContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            
+            builder.Services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<AppContext>()
+                .AddDefaultTokenProviders();
+
+            // Register application services
             builder.Services.AddScoped<ITripService, TripService>();
             builder.Services.AddScoped<ITripRepository, TripRepository>();
             builder.Services.AddScoped<ICarRepository, CarRepository>();
@@ -35,26 +45,22 @@ namespace APIapp
 
 
 
+            builder.Services.AddScoped<ITourguideRepository, TourguideRepository>();
+            builder.Services.AddScoped<ITourguideService, TourguideService>();
 
             builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
-
-
             builder.Services.Configure<CloudinarySettings>(
-            builder.Configuration.GetSection("CloudinarySettings"));
+                builder.Configuration.GetSection("CloudinarySettings"));
             builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
 
-            // Add services to the container
+            // Add controllers and Swagger
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            //builder.Services.AddAutoMapper(typeof(AutoMapper.Mapper));
-
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -63,13 +69,12 @@ namespace APIapp
 
             app.UseHttpsRedirection();
             app.UseAuthorization();
-
             app.MapControllers();
 
-            app.UseCors(builder =>
-                builder.AllowAnyOrigin()
-               .AllowAnyMethod()
-               .AllowAnyHeader());
+            app.UseCors(corsBuilder =>
+                corsBuilder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader());
 
             app.Run();
         }
