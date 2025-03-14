@@ -6,18 +6,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace Infrastructure
 {
 
     
 
-    public class AppContext : IdentityDbContext<User>
+    public class AppContext : IdentityDbContext<User,IdentityRole<int>,int>
     {
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //=> optionsBuilder.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB;Initial Catalog = jawlaDb; Integrated Security = True; Encrypt=False");
-        public AppContext(DbContextOptions<AppContext> options) : base(options) { }
 
+
+        public AppContext(DbContextOptions<AppContext> options) : base(options)
+        {
+        }
 
 
         public virtual DbSet<User> Users { get; set; }

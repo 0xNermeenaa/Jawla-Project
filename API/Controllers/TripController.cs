@@ -12,11 +12,13 @@ namespace API.Controllers
     public class TripController : ControllerBase
 
     {
-        private readonly TripService _tripService;
+        private readonly ITripService _tripService;
+        private readonly ICloudinaryService _cloudinaryService;
 
-        public TripController(TripService tripService)
+        public TripController(ITripService tripService, ICloudinaryService cloudinaryService)
         {
             _tripService = tripService;
+            _cloudinaryService = cloudinaryService;
         }
 
         //---------------------------------------------
@@ -83,20 +85,8 @@ namespace API.Controllers
 
 
 
-
-
-
-
-
-
-
-
-
-
         //
         
-
-
 
     }
 }

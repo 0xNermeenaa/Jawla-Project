@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,8 +21,8 @@ namespace Repository.Service
     {
         Task<string> UploadImageAsync(IFormFile file);
         Task<List<string>> UploadImageAsync(List<IFormFile> file);
-        Task<DeletionResult> DeleteImageAsync(string PublicId);
-        Task <DeletionResult> DeleteImageAsync(List<string> PublicIds);
+        Task<bool> DeleteImageAsync(string PublicId);
+        Task <bool> DeleteImageAsync(List<string> PublicIds);
     }
     ///-// / 
     /// -// /
@@ -86,18 +87,20 @@ namespace Repository.Service
 
 
 
-        public async Task<DeletionResult> DeleteImageAsync(string PublicId)
+        public async Task<bool> DeleteImageAsync(string PublicId)
         {
             var deleteParams = new DeletionParams(PublicId);
             var Result = await _cloudinary.DestroyAsync(deleteParams);
-            return Result;
+            if (Result.StatusCode == HttpStatusCode.OK)
+                return true;
+            return false;
         }
 
 
-        public async Task<DeletionResult> DeleteImageAsync(List<string> PublicIds)
+        public async Task<bool> DeleteImageAsync(List<string> PublicIds)
         {
             var images = new List<string>();
-            DeletionResult Result = null; 
+            bool Result = false; 
             if (PublicIds != null && PublicIds.Count > 0)
             {
                 foreach (var image in PublicIds)

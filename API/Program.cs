@@ -23,9 +23,11 @@ namespace APIapp
             builder.Services.AddScoped<ICarService, CarService>();
             builder.Services.AddScoped<IDriverRepository, DriverRepository>();
             builder.Services.AddScoped<IDriverService, DriverService>();
+            builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
 
-            builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<AppContext>().AddDefaultTokenProviders();
+            builder.Services.AddIdentity<User, IdentityRole<int>>().AddEntityFrameworkStores<AppContext>().AddDefaultTokenProviders();
 
+            
 
             // builder.Services.AddScoped<AppContext, AppContext>();
             builder.Services.AddDbContext<AppContext>(options =>

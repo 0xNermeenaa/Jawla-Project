@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastructure.DTO
+namespace Repository.Service
 {
-    public class TourguideDTO
+    public interface ITourguidService
     {
-       
+
+
     }
 }

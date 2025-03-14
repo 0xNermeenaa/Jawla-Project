@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using AppContext = Infrastructure.AppContext;
 using Infrastructure.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Repository.Repository
 {
@@ -17,6 +18,12 @@ namespace Repository.Repository
         public TourguideRepository(AppContext context) : base(context)
         {
             _context = context;
+        }
+
+
+        public async Task<List<Tourguide>> GetAvailableCarsAsync()
+        {
+            return await _context.Tourguides.Where(c => c.State == "Available").ToListAsync();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Infrastructure.Models
         public string name { get; set; }
         public string language { get; set; }
         public int phone { get; set; }
-        public string state { get; set; }
+        public string State { get; set; }
 
 
 
