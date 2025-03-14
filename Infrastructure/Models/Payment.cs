@@ -15,7 +15,7 @@ namespace Infrastructure.Models
 
         //
         [ForeignKey("User")]
-        public int User_Id { get; set; }
+        public string User_Id { get; set; }
         [ForeignKey("Trip")]
         public int Trip_Id { get; set; }
         //

@@ -10,15 +10,7 @@ namespace Infrastructure.Models
 {
     public class User:IdentityUser
     {
-        public int Id { get; set; }
         public string? Name  { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string Phone { get; set; }
-        public string Role { get; set; }
-
-
-
 
         public virtual ICollection<Trip> FavoriteTrips { get; set; } = new List<Trip>();
         public virtual ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();

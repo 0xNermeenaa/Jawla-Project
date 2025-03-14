@@ -21,7 +21,7 @@ namespace Infrastructure.Models
         public virtual PlacesImage Images { get; set; } = new PlacesImage();
 
 
-
+        
         public virtual ICollection<Car> Cars { get; set; } = new List<Car>();
         public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
         

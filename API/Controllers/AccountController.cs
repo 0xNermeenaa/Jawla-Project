@@ -56,8 +56,8 @@ namespace API.Controllers
             {
                 Name = user.Username,
                 Email = user.Email,
-                Phone = user.Phone,
-                Password = user.password
+                PhoneNumber = user.Phone,
+               
             };
 
             IdentityResult result = await _userManager.CreateAsync(appUser, user.password);
