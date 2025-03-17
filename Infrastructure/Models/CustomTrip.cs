@@ -22,7 +22,7 @@ namespace Infrastructure.Models
 
 
         [ForeignKey("User")]
-        public string user_id { get; set; }
+        public int user_id { get; set; }
         public User User { get; set; }
 
 

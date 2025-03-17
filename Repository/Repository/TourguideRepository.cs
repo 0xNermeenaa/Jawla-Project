@@ -28,7 +28,7 @@ namespace Repository.Repository
         public async Task<List<Tourguide>> GetTourguidesByStateAsync(string state)
         {
             return await _context.Tourguides
-                .Where(t => t.state == state)
+                .Where(t => t.State == state)
                 .ToListAsync();
         }
     }

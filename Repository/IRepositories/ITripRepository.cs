@@ -11,7 +11,7 @@ namespace Repository.IRepositories
 {
     public interface ITripRepository : IGenericRepository<Trip, int>
     {
-        
+        Task<List<Trip>> GetAlltripAsync();
 
 
     }

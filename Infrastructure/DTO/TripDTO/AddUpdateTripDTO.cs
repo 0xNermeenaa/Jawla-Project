@@ -12,7 +12,7 @@ namespace Infrastructure.DTO.TripDTO
     {
 
 
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Title { get; set; }
         public string Location { get; set; }
         public DateTime start_date { get; set; }
@@ -24,8 +24,8 @@ namespace Infrastructure.DTO.TripDTO
         public List<int> CarIds { get; set; }
         public List<int> TourguideIds { get; set; }
 
-        public IFormFile Main_image { get; set; }
-        public List <IFormFile> Images { get; set; }
+        public IFormFile? Main_image { get; set; }
+        public List <IFormFile>? Images { get; set; }
 
     }
 }
