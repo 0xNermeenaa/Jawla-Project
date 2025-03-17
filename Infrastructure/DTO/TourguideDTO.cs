@@ -10,9 +10,9 @@ namespace Infrastructure.DTO
     {
 
         public int? Id { get; set; }
-        public string Name { get; set; }
-        public string Language { get; set; }
-        public int Phone { get; set; }
+        public string name { get; set; }
+        public string language { get; set; }
+        public int phone { get; set; }
         public string State { get; set; }
 
     }

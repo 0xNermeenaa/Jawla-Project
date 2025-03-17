@@ -27,6 +27,7 @@ namespace API.Controllers
         public async Task<ActionResult<List<AllTripsDTO>>> GetAllTrips()
         {
             var trips = await _tripService.GetAllTripsAsync();
+
             return Ok(trips);
         }
 
@@ -37,7 +38,7 @@ namespace API.Controllers
         public async Task <ActionResult<TripDetailsDTO>> GetTrip(int id) 
         {
             var trip = await _tripService.GetTripDetailsAsync(id);
-
+            if (trip == null) { return BadRequest($"Trip {id} not found"); }
             return Ok(trip);
         }
 
@@ -81,7 +82,6 @@ namespace API.Controllers
 
             return NoContent();
         }
-
 
 
 

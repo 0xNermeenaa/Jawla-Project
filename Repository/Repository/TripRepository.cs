@@ -21,8 +21,20 @@ namespace Repository.Repository
             _context = context;
         }
         //-------------------------------------------
-       
 
+        public async Task<Trip> GetByIdAsync(int id)
+        {
+            return await _context.Trips
+                .Include(t => t.Images) // تحميل العلاقة
+                .FirstOrDefaultAsync(t => t.Id == id);
+        }
+
+        public async Task<List<Trip>> GetAlltripAsync()
+        {
+            return await _context.Trips
+                .Include(t => t.Images) // تحميل العلاقة
+                .ToListAsync();
+        }
 
     }
 }

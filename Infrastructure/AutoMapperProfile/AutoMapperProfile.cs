@@ -22,10 +22,12 @@ namespace Infrastructure.AutoMapperProfile
             {
                 CreateMap<Trip, AllTripsDTO>()
                    .ForMember(dest => dest.Main_Image, opt => opt.MapFrom(src => src.Images.main_image)).ReverseMap();
-
+                CreateMap<Trip, TripDetailsDTO>()
+                .ForMember(dest => dest.Main_image, opt => opt.MapFrom(src => src.Images.main_image))
+                .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images.Images)).ReverseMap();
                 //
 
-                CreateMap<Trip, TripDetailsDTO>().ReverseMap();
+               // CreateMap<TripDetailsDTO, Trip>().ReverseMap();
                 CreateMap<CarDTO, Car>().ReverseMap();
                 CreateMap<DriverDTO, Driver>().ReverseMap();
                 CreateMap<TourguideDTO, Tourguide>().ReverseMap();
@@ -35,16 +37,10 @@ namespace Infrastructure.AutoMapperProfile
 
 
                 CreateMap<AddUpdateTripDTO, Trip>()
-                 .ForMember(dest => dest.Cars, opt => opt.MapFrom((src, dest, _, context) =>
-                  {
-                   var dbContext = context.Items["DbContext"] as AppContext;
-                   return dbContext.Cars.Where(car => src.CarIds.Contains(car.Id)).ToList();
-                    }))
-                  .ForMember(dest => dest.Tourguides, opt => opt.MapFrom((src, dest, _, context) =>
-                  {
-                    var dbContext = context.Items["DbContext"] as AppContext;
-                    return dbContext.Tourguides.Where(tg => src.TourguideIds.Contains(tg.Id)).ToList();
-                   })).ReverseMap();
+    .ForMember(dest => dest.Images, opt => opt.Ignore());
+    //.ForMember(dest => dest.Main_image, opt => opt.Ignore());
+
+
 
 
             }

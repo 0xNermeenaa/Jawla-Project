@@ -34,11 +34,9 @@ namespace Repository.Repository
         public async Task<T> GetByIdAsync(Tid id)
         {
             var en = await _dbSet.FindAsync(id);
-
             if (en == null)
             {
-                throw new Exception($"Entity with ID {id} not found.");
-            }
+                return null;            }
 
             return en;
         }
@@ -66,16 +64,16 @@ namespace Repository.Repository
         {
             return await _dbSet.AnyAsync(entity => entity.Equals(id));
         }
-        //
+//
 
 
-        public  int hg()
-        {
+public class ex : Exception {
 
-            return (5);
-            
-       
-        }
+            public string msg()
+            { return "not found"; }
+        
+        };
+
 
 
     }

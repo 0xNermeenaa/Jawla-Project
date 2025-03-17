@@ -40,7 +40,7 @@ namespace Repository.Service
 
         public async Task<List<AllTripsDTO>> GetAllTripsAsync()
         {
-            var trips = await _tripRepository.GetAllAsync();
+            var trips = await _tripRepository.GetAlltripAsync();
 
 
             var AllTrips = _mapper.Map<List<AllTripsDTO>>(trips);
@@ -120,7 +120,7 @@ namespace Repository.Service
 
             if (tripModel == null) return false;
 
-            var existingTrip = await _tripRepository.GetByIdAsync(trip.Id);
+            var existingTrip = await _tripRepository.GetByIdAsync((int)trip.Id);
             if (existingTrip == null) return false;
 
 

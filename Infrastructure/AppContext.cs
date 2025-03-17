@@ -22,7 +22,7 @@ namespace Infrastructure
         }
 
 
-        public virtual DbSet<User> User { get; set; }
+        //public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Trip> Trips { get; set; }
         public virtual DbSet<Tourguide> Tourguides { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
