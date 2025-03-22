@@ -29,7 +29,7 @@ namespace Infrastructure
         public virtual DbSet<Driver> Drivers { get; set; }
         public virtual DbSet<CustomTrip> CustomTrips { get; set; }
         public virtual DbSet<Car> Cars { get; set; }
-
+        public DbSet<HelpIssue> HelpIssues { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
