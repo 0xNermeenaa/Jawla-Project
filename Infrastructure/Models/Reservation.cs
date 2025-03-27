@@ -15,14 +15,16 @@ namespace Infrastructure.Models
 
 
         [ForeignKey("User")]
-
         public int User_Id { get; set; }
         [ForeignKey("Trip")]
         public int Trip_Id { get; set; }
+        [ForeignKey("Payment")]
+        public int? PaymentId { get; set; }
 
 
         public User User { get; set; }
         public Trip Trip { get; set; }
+        public Payment? Payment { get; set; }
 
         public DateTime DateTime { get; set; }
     }

@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
 
-using AppContext = Infrastructure.AppContext;
-using Infrastructure.Models;
-using Repository.IRepositories;
-using Microsoft.EntityFrameworkCore;
+    using AppContext = Infrastructure.AppContext;
+    using Infrastructure.Models;
+    using Repository.IRepositories;
+    using Microsoft.EntityFrameworkCore;
 
 namespace Repository.Repository
 {

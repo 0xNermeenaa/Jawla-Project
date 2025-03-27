@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Infrastructure.Models
@@ -17,7 +18,7 @@ namespace Infrastructure.Models
 
         [ForeignKey("Trip")]
         public int Trib_Id { get; set; }
-
+        [JsonIgnore]
         public Trip Trip { get; set; }
     }
 }

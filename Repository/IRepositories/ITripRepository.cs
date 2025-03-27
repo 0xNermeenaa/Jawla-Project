@@ -13,6 +13,11 @@ namespace Repository.IRepositories
     {
         Task<List<Trip>> GetAlltripAsync();
 
+        Task<Trip> GetTripAdmin(int id);
 
+        Task<Trip> GetTripWithReservationsAsync(int tripId);
+
+
+        Task<List<Reservation>> GetTripReservationsAsync(int tripId);
     }
 }

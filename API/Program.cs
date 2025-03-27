@@ -17,23 +17,31 @@ namespace APIapp
         {
             var builder = WebApplication.CreateBuilder(args);
 
-           
-            //builder.Services.AddDbContext<AppContext>(options =>
-               // options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            
-           // builder.Services.AddIdentity<User, IdentityRole>()
-             //   .AddEntityFrameworkStores<AppContext>()
-             //   .AddDefaultTokenProviders();
+            //builder.Services.AddDbContext<AppContext>(options =>
+            // options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+            // builder.Services.AddIdentity<User, IdentityRole>()
+            //   .AddEntityFrameworkStores<AppContext>()
+            //   .AddDefaultTokenProviders();
 
             // Register application services
             builder.Services.AddScoped<ITripService, TripService>();
+            builder.Services.AddScoped <ICustomTripService, CustomTripService>();
+            builder.Services.AddScoped<ICustomTripRepository, CustomTripRepository>();
             builder.Services.AddScoped<ITripRepository, TripRepository>();
             builder.Services.AddScoped<ICarRepository, CarRepository>();
             builder.Services.AddScoped<ICarService, CarService>();
             builder.Services.AddScoped<IDriverRepository, DriverRepository>();
             builder.Services.AddScoped<IDriverService, DriverService>();
             builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
+            builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+            builder.Services.AddScoped<IPaymentService, PaymentService>();
+
+            builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
+            builder.Services.AddScoped<IReservationService, ReservationService>();
+
 
             builder.Services.AddIdentity<User, IdentityRole<int>>().AddEntityFrameworkStores<AppContext>().AddDefaultTokenProviders();
 

@@ -27,14 +27,15 @@ namespace API.Controllers
         public async Task<ActionResult<List<AllTripsDTO>>> GetAllTrips()
         {
             var trips = await _tripService.GetAllTripsAsync();
-
+            if(trips!=null)
             return Ok(trips);
+            return BadRequest();
         }
 
         //
 
         
-        [HttpGet("[action]")]
+        [HttpGet("{id}")]
         public async Task <ActionResult<TripDetailsDTO>> GetTrip(int id) 
         {
             var trip = await _tripService.GetTripDetailsAsync(id);
@@ -51,20 +52,22 @@ namespace API.Controllers
         {
 
             if (!ModelState.IsValid) return BadRequest(ModelState);
+            if (add.Stste != "Active") return BadRequest("State must be Active");
 
             var addtrip = await _tripService.AddTripِAsync(add);
-
-            return Ok("add successfully");
+            if (addtrip != null) 
+            return Ok(addtrip);
+            return BadRequest();
         }
         //
 
-        [HttpDelete("[action]")]
+        [HttpDelete("{id}")]
         public async Task <IActionResult> DeleteTrip(int id)
         {
             var del = await _tripService.DeleteTripAsync(id);
-            if (!del) return NotFound();
+            if (!del) return BadRequest();
 
-            return NoContent();
+            return Ok("Trip Deleted");
 
         }
 
@@ -78,15 +81,43 @@ namespace API.Controllers
 
                 var updated = await _tripService.UpdateTripAsync(UpTrip);
 
-            if (!updated) return NotFound("Trip not found or could not be updated.");
+            if (updated==false) return BadRequest("Trip not found or could not be updated.");
 
-            return NoContent();
+            return Ok("Trip Updated");
         }
 
 
 
         //
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetTripAdmin(int id)
+        {
+            var ATrip = await _tripService.GetTripAdmin(id);
+            if (ATrip != null) return Ok (ATrip);
+            return BadRequest();
+        }
         
 
+        //
+
+
+        [HttpPut("{id}/state")] 
+        public async Task<IActionResult> UpdateState(int id, string state)
+        {
+            if (!ModelState.IsValid) { return BadRequest(); }
+            var st= await _tripService.UpdateTripStateAsync(id, state);
+            if (st!= true) return BadRequest();
+            return Ok("State Updated");
+        }
+
+
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetTripResevations(int tripId)
+        {
+            var re = await _tripService.GetTripResevations(tripId);
+            if (re!= null) return Ok(re);
+            return BadRequest();
+        }
     }
 }

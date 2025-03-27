@@ -31,6 +31,26 @@ namespace Repository.Repository
                 .Where(t => t.State == state)
                 .ToListAsync();
         }
+
+
+
+
+
+        //
+
+
+
+
+
+        public async Task<List<Tourguide>> GetTourguidesByIdsAsync(List<int> tourguideIds)
+        {
+            return await _context.Tourguides
+                .Where(tg => tourguideIds.Contains(tg.Id))
+                .ToListAsync();
+        }
+
+
+
     }
 }
 

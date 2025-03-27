@@ -11,5 +11,6 @@ namespace Repository.IRepositories
     public interface ICarRepository :IGenericRepository<Car, int>
     {
         Task<List<Car>> GetAvailableCarsAsync();
+        Task<List<Car>> GetCarsByIdsAsync(List<int> carIds);
     }
 }

@@ -13,5 +13,7 @@ namespace Repository.IRepositories
 
         // Example of a custom method; add more if needed
         Task<List<Tourguide>> GetTourguidesByStateAsync(string state);
+
+        Task<List<Tourguide>> GetTourguidesByIdsAsync(List<int> tourguideIds);
     }
 }

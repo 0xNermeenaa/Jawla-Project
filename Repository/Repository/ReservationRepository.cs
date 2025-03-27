@@ -3,22 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 using AppContext = Infrastructure.AppContext;
 using Infrastructure.Models;
-using Infrastructure;
 using Repository.IRepositories;
+
 
 namespace Repository.Repository
 {
-    public class PaymentRepository:GenericRepository<Payment,int>,IPaymentRepository
+    public class ReservationRepository:GenericRepository<Reservation,int>,IReservationRepository
     {
+
         private readonly AppContext _context;
 
-        public PaymentRepository(AppContext context) : base(context)
+        public ReservationRepository(AppContext context) : base(context)
         {
             _context = context;
         }
+
+
+
+
     }
 }
-
