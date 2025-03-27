@@ -10,5 +10,6 @@ namespace Repository.IRepositories
     public interface IDriverRepository: IGenericRepository<Driver, int>
     {
         Task<List<Driver>> GetDriversByCarIdAsync(int carId);
+
     }
 }

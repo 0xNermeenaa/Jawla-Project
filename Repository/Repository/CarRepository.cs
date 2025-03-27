@@ -23,5 +23,15 @@ namespace Repository.Repository
         {
             return await _context.Cars.Where(c => c.State == "Available").ToListAsync();
         }
+
+
+
+
+        public async Task<List<Car>> GetCarsByIdsAsync(List<int> carIds)
+        {
+            return await _context.Cars
+                .Where(car => carIds.Contains(car.Id))
+                .ToListAsync();
+        }
     }
 }

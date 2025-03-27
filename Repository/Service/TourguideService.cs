@@ -60,5 +60,15 @@ namespace Repository.Service
             return await _tourguideRepository.DeleteAsync(id);
         }
 
+
+
+        //
+
+
+
+
+
+
+
     }
 }

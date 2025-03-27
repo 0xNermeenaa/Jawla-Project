@@ -20,6 +20,7 @@ namespace Infrastructure.DTO.TripDTO
         public int Price { get; set; }
         public int Duration { get; set; }
         public int Persons { get; set; }
+        public string Stste { get; set; }
 
         public List<int> CarIds { get; set; }
         public List<int> TourguideIds { get; set; }

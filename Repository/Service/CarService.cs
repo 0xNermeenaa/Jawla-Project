@@ -65,5 +65,24 @@ namespace Repository.Service
             await _carRepository.DeleteAsync(car);
             return true;
         }
+
+
+
+
+
+
+
+
+        //
+
+
+
+
+        public async Task<List<Car>> GetCarsByIdsAsync(List<int> carIds)
+        {
+            return await _carRepository.GetCarsByIdsAsync(carIds);
+        }
+
+
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Infrastructure.Models
@@ -17,6 +18,7 @@ namespace Infrastructure.Models
 
 
         public virtual ICollection<CustomTrip> CustomTrips { get; set; } = new List<CustomTrip>();
+        [JsonIgnore]
         public virtual ICollection<Trip> Trips { get; set; } = new List<Trip>();
 
 

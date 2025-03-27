@@ -1,5 +1,4 @@
-﻿using Infrastructure.DTO;
-using Infrastructure.DTO.UserDTO;
+﻿using Infrastructure.DTO.UserDTO;
 using Infrastructure.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;

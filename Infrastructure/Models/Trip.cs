@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Infrastructure.Models
@@ -17,11 +18,11 @@ namespace Infrastructure.Models
         public int Price { get; set; }
         public int Duration { get; set; }
         public int Persons { get; set; }
-
+        public string Stste {  get; set; }
         public virtual PlacesImage Images { get; set; } = new PlacesImage();
 
 
-        
+        [JsonIgnore]
         public virtual ICollection<Car> Cars { get; set; } = new List<Car>();
         public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
         

@@ -7,8 +7,9 @@ using Infrastructure.Models;
 
 namespace Repository.IRepositories
 {
-    public interface ICustomTripRepository:IGenericRepository<CustomTrip, int>
+    public interface ICustomTripRepository : IGenericRepository<CustomTrip, int>
     {
 
+        Task<List<CustomTrip>> GetAllWaitAsync();
     }
 }
