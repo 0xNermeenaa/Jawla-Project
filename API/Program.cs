@@ -55,6 +55,9 @@ namespace APIapp
 
             builder.Services.AddScoped<ITourguideRepository, TourguideRepository>();
             builder.Services.AddScoped<ITourguideService, TourguideService>();
+            // Add services to the container.
+            builder.Services.AddScoped<IHelpIssueRepository, HelpIssueRepository>();
+            builder.Services.AddScoped<IHelpIssueService, HelpIssueService>();
 
             builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
