@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{2
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{3B6BEFC9-3F2F-493B-A1A2-B121E11AB420}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jawla.UnitTests", "Jawla.tests\Jawla.UnitTests.csproj", "{A23B879B-BA88-4A1B-8DC9-F1D9BC93A387}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{3B6BEFC9-3F2F-493B-A1A2-B121E11AB420}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B6BEFC9-3F2F-493B-A1A2-B121E11AB420}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B6BEFC9-3F2F-493B-A1A2-B121E11AB420}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A23B879B-BA88-4A1B-8DC9-F1D9BC93A387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A23B879B-BA88-4A1B-8DC9-F1D9BC93A387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A23B879B-BA88-4A1B-8DC9-F1D9BC93A387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A23B879B-BA88-4A1B-8DC9-F1D9BC93A387}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
